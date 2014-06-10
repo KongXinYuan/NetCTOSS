@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.tarena.netctoss.pojo.Cost" table="COST" schema="SYSTEM">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" precision="4" scale="0" />
+            <generator class="sequence">
+            	<param name="sequence">COST_SEQ</param>
+            </generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" length="50" not-null="true" />
+        </property>
+        <property name="costType" type="java.lang.Integer">
+            <column name="COST_TYPE" precision="22" scale="0" />
+        </property>
+        <property name="baseDuration" type="java.lang.Integer">
+            <column name="BASE_DURATION" precision="11" scale="0" />
+        </property>
+        <property name="baseCost" type="java.lang.Double">
+            <column name="BASE_COST" precision="7" />
+        </property>
+        <property name="unitCost" type="java.lang.Double">
+            <column name="UNIT_COST" precision="7" scale="4" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" length="1" not-null="true" />
+        </property>
+        <property name="descr" type="java.lang.String">
+            <column name="DESCR" length="100" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="7" />
+        </property>
+        <property name="startTime" type="java.util.Date">
+            <column name="START_TIME" length="7" />
+        </property>        
+    </class>
+</hibernate-mapping>

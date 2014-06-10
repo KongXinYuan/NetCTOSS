@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+<package name="account" extends="netctoss-default" namespace="/account">
+	<action name="account_list" class="accountSearchListAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/account/account_list.jsp
+		</result>
+	</action>
+	<action name="account_*" method="{1}" class="accoutAction">
+		<result name="success">
+			/WEB-INF/jsp/account/account_{1}.jsp
+		</result>
+		<result name="ok" type="json">
+			<param name="root">ok</param>
+		</result>
+		<result name="id" type="json">
+			<param name="root">id</param>
+		</result>
+	</action>
+</package>
+
+</struts>

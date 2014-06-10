@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="netctoss-default" location="233,165" size="1015,315">
+    <action name="defaultAction" location="555,57" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="login" location="555,222" size="150,62">
+      <result name="login">
+        <resourceEdge source="login" routing="0" target="login.jsp" />
+      </result>
+      <result name="success" />
+    </action>
+    <action name="codeCheck" location="310,57" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="index" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="image" location="65,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="out_login" location="800,232" size="150,41">
+      <result name="success" />
+    </action>
+  </package>
+  <webResource name="login.jsp" path="/WEB-INF/jsp/login.jsp" location="14,360" size="150,55" />
+  <webResource name="index.jsp" path="/WEB-INF/jsp/index.jsp" location="293,10" size="150,55" />
+  <include file="struts-fee.xml" location="10,570" size="150,30" />
+  <include file="struts-account.xml" location="255,570" size="150,30" />
+  <include file="struts-service.xml" location="500,570" size="150,30" />
+  <include file="struts-role.xml" location="10,675" size="150,30" />
+  <include file="struts-admin.xml" location="255,675" size="150,30" />
+  <include file="struts-user.xml" location="500,675" size="150,30" />
+  <include file="struts-bill.xml" location="10,780" size="150,30" />
+  <include file="struts-report.xml" location="255,780" size="150,30" />
+</Struts2Diagram>
+

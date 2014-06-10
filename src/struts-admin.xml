@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="admin" extends="netctoss-default" namespace="/admin">
+	<action name="admin_list" class="adminListAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/admin/admin_list.jsp
+		</result>
+	</action>
+  	<action name="admin_*" method="{1}" class="adminAction">
+		<result name="success">
+			/WEB-INF/jsp/admin/admin_{1}.jsp
+		</result>
+		<result name="ok" type="json">
+			<param name="root">ok</param>
+		</result>
+	</action>
+	</package>
+</struts>

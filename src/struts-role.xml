@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="role" extends="netctoss-default" namespace="/role">
+	<action name="role_list" class="roleListAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/role/role_list.jsp
+		</result>
+	</action>
+   	<action name="role_*" method="{1}" class="roleAction">
+		<result name="success">
+			/WEB-INF/jsp/role/role_{1}.jsp
+		</result>		
+		<result name="ok" type="json">
+			<param name="root">ok</param>
+		</result>
+	</action>
+	</package>
+</struts>

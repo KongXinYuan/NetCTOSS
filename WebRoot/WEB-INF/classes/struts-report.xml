@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="report" extends="netctoss-default" namespace="/report">
+	<action name="report_list" class="reportListAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/report/report_list.jsp
+		</result>
+	</action>
+	</package>
+</struts>

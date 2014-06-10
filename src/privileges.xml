@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<privileges>
+	<privilege id="1">
+		<name>角色管理</name>
+		<urls>
+			<url>role_delete</url>
+			<url>role_update</url>
+			<url>role_modi</url>
+			<url>role_add</url>
+			<url>role_nameCheck</url>
+			<url>role_list</url>
+			<url>role_deltail</url>
+		</urls>
+	</privilege> 
+	<privilege id="2">
+		<name>管理员</name>
+		<urls>
+			<url>admin_list</url>
+			<url>admin_add</url>
+			<url>admin_adminCheck</url>
+			<url>admin_delete</url>
+			<url>admin_modi</url>
+			<url>admin_resetPwd</url>
+			<url>admin_detail</url>
+		</urls>
+	</privilege>
+	<privilege id="3">
+		<name>资费管理</name>
+		<urls>
+			<url>fee_list</url>
+			<url>fee_add</url>
+			<url>fee_start</url>
+			<url>fee_delete</url>
+			<url>fee_nameCheck</url>
+			<url>fee_modi</url>
+			<url>fee_detail</url>
+		</urls>
+	</privilege> 
+	<privilege id="4">
+		<name>账务账号</name>
+		<urls>
+			<url>account_list</url>
+			<url>account_add</url>
+			<url>account_modi</url>
+			<url>account_detail</url>
+			<url>account_idcardNoCheck</url>
+			<url>account_setStatus</url>
+			<url>account_delete</url>			
+		</urls>
+	</privilege> 
+	<privilege id="5">
+		<name>业务账号</name>
+		<urls>
+			<url>service_list</url>
+			<url>service_add</url>
+			<url>service_modi</url>
+			<url>service_detail</url>
+			<url>service_account</url>
+			<url>service_checkAccount</url>
+			<url>service_setStatus</url>
+			<url>service_OsCheck</url>
+			<url>service_delete</url>
+			<url>service_unixHostCheck</url>
+		</urls>
+	</privilege> 
+	<privilege id="6">
+		<name>账单</name>
+		<urls>
+			<url>bill_list</url>
+			<url>bill_item</url>
+			<url>bill_service_detail</url>
+		</urls>
+	</privilege> 
+	<privilege id="7">
+		<name>报表</name>
+		<urls>
+			<url>report_list</url>
+		</urls>
+	</privilege>
+</privileges>

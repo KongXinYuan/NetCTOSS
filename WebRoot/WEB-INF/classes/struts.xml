@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<include file="struts-fee.xml"></include>
+	<include file="struts-account.xml"></include>
+	<include file="struts-service.xml"></include>
+	<include file="struts-role.xml"></include>
+	<include file="struts-admin.xml"></include>
+	<include file="struts-user.xml"></include>
+	<include file="struts-bill.xml"></include>
+	<include file="struts-report.xml"></include>
+	<package name="netctoss-default" extends="json-default">
+		<interceptors>
+			<interceptor name="loginCheck" class="org.tarena.netctoss.interceptor.LoginInterceptor"></interceptor>
+			<interceptor name="privilegeCheck" class="org.tarena.netctoss.interceptor.PrivilegeCheckInterceptor"></interceptor>
+			<interceptor-stack name="sessionInter">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginCheck"></interceptor-ref>
+				<interceptor-ref name="privilegeCheck"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="sessionInter"></default-interceptor-ref>
+		<default-action-ref name="defaultAction" />
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<result name="nopower">/WEB-INF/jsp/nopower.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">login</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<!-- 采用重定向方式调用login -->
+		<action name="defaultAction">
+			<result type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">login</param>
+			</result>
+		</action>
+		<!-- 登录 -->
+		<action name="login" class="org.tarena.netctoss.action.LoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="success" type="redirectAction">index</result>
+		</action>
+		<!-- 检查验证码 -->
+		<action name="codeCheck" class="org.tarena.netctoss.action.CodeCheckAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<!-- 首页 -->
+		<action name="index">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="loginCheck"></interceptor-ref>
+			<result>
+				/WEB-INF/jsp/index.jsp
+			</result>
+		</action>
+		<!-- 验证码 -->
+		<action name="image" class="org.tarena.netctoss.action.ImageAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="stream">
+				<param name="inputName">is</param>
+			</result>
+		</action>
+		<!-- 注销 -->
+		<action name="out_login" class="org.tarena.netctoss.action.OutLoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">login</param>
+			</result>
+		</action>
+	</package>
+</struts>

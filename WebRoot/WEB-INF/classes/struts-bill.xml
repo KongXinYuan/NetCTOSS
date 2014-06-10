@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="bill" extends="netctoss-default" namespace="/bill">
+	<action name="bill_list" class="billListAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/bill/bill_list.jsp
+		</result>
+	</action>
+  	<action name="bill_item" class="billItemAction">
+  		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/bill/bill_item.jsp
+		</result>		
+	</action>
+	<action name="bill_service_detail" class="billServiceDetailAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/bill/bill_service_detail.jsp
+		</result>		
+	</action>
+	</package>
+</struts>

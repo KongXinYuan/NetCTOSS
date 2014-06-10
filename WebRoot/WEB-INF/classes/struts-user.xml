@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="user" extends="netctoss-default" namespace="/user">
+	<action name="user_info" class="userInfoAction">
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+		<interceptor-ref name="loginCheck"></interceptor-ref>
+		<result name="success">
+			/WEB-INF/jsp/user/user_info.jsp
+		</result>
+	</action>
+  	<action name="user_modi_pwd" class="userModiPwdAction">
+	  	<interceptor-ref name="defaultStack"></interceptor-ref>
+		<interceptor-ref name="loginCheck"></interceptor-ref>
+		<result name="success">
+			/WEB-INF/jsp/user/user_modi_pwd.jsp
+		</result>		
+	</action>
+	</package>
+</struts>

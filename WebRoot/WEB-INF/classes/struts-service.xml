@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="service" extends="netctoss-default" namespace="/service">
+	<action name="service_list" class="serviceListAction">
+		<param name="pageSize">10</param>
+		<result name="success">
+			/WEB-INF/jsp/service/service_list.jsp
+		</result>
+	</action>
+  	<action name="service_*" method="{1}" class="serviceAction">
+		<result name="success">
+			/WEB-INF/jsp/service/service_{1}.jsp
+		</result>
+		<result name="json" type="json">
+			<param name="includeProperties">loginName,accountId</param>
+		</result>
+		<result name="ok" type="json">
+			<param name="root">ok</param>
+		</result>
+	</action>
+	</package>
+</struts>
